@@ -1,0 +1,712 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d271c">
+  <meta
+    name="description"
+    content="Higieniza: manejo integrado en el control de plagas para hogares, comercios y empresas. Inspección, control, prevención y seguimiento."
+  >
+
+  <title>Higieniza | Manejo integrado en el control de plagas</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header class="site-header" id="inicio">
+    <div class="container header-inner">
+      <a class="brand" href="#inicio" aria-label="Higieniza, volver al inicio">
+        <img src="img/logo.png" alt="Higieniza" width="199" height="55">
+      </a>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="site-nav"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Navegación principal">
+        <a href="#inicio" class="is-current">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#nosotros">Sobre nosotros</a>
+        <a href="#preguntas">Preguntas frecuentes</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <a class="button button-primary header-cta" href="#contacto">
+        Solicitar presupuesto
+      </a>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <!-- PORTADA -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div
+        class="hero-image"
+        role="img"
+        aria-label="Profesional realizando control de plagas en el exterior de una vivienda"
+      ></div>
+      <div class="hero-overlay"></div>
+
+      <div class="container hero-content">
+        <span class="hero-tag">AMBIENTES MÁS CUIDADOS</span>
+
+        <h1 id="hero-title">
+          Manejo integrado en el <span>control de plagas</span>
+        </h1>
+
+        <p>
+          Inspeccionamos cada espacio, identificamos el problema y proponemos
+          medidas de control y prevención adaptadas a la situación.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#contacto">
+            Solicitar presupuesto <span aria-hidden="true">↗</span>
+          </a>
+          <a class="button button-outline-light" href="#metodo">
+            Conocer nuestro método
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ENFOQUE DE TRABAJO -->
+    <div class="feature-bar" aria-label="Nuestro enfoque de trabajo">
+      <div class="container feature-grid">
+        <div class="feature">
+          <span class="feature-icon" aria-hidden="true">◎</span>
+          <div>
+            <strong>Inspección inicial</strong>
+            <small>Comprender el problema</small>
+          </div>
+        </div>
+
+        <div class="feature">
+          <span class="feature-icon" aria-hidden="true">◇</span>
+          <div>
+            <strong>Plan de intervención</strong>
+            <small>Medidas para cada caso</small>
+          </div>
+        </div>
+
+        <div class="feature">
+          <span class="feature-icon" aria-hidden="true">✳</span>
+          <div>
+            <strong>Prevención</strong>
+            <small>Atender las causas</small>
+          </div>
+        </div>
+
+        <div class="feature">
+          <span class="feature-icon" aria-hidden="true">◷</span>
+          <div>
+            <strong>Seguimiento</strong>
+            <small>Evaluar los resultados</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVICIOS -->
+    <section
+      class="section services-section"
+      id="servicios"
+      aria-labelledby="servicios-title"
+    >
+      <div class="container">
+        <div class="section-heading services-heading">
+          <div>
+            <p class="eyebrow">NUESTROS SERVICIOS</p>
+            <h2 id="servicios-title">
+              Control de plagas para<br>hogares, comercios y empresas
+            </h2>
+            <p>
+              Estas son algunas de las consultas más frecuentes. Una evaluación
+              permite identificar la plaga y definir el procedimiento adecuado.
+            </p>
+          </div>
+
+          <a class="button button-outline-dark" href="#contacto">
+            Consultar un servicio
+          </a>
+        </div>
+
+        <div class="service-grid">
+          <button class="service-card" type="button" data-pest="Roedores">
+            <span class="pest-media">
+              <img
+                src="img/rata.jpg"
+                alt="Fotografía de una rata marrón"
+                loading="lazy"
+                decoding="async"
+              >
+            </span>
+            <strong>Roedores</strong>
+            <span>Revisión de accesos, rastros y posibles refugios.</span>
+            <span class="card-arrow" aria-hidden="true">↗</span>
+          </button>
+
+          <button class="service-card" type="button" data-pest="Cucarachas">
+            <span class="pest-media">
+              <img
+                src="img/cucaracha.jpg"
+                alt="Fotografía de una cucaracha"
+                loading="lazy"
+                decoding="async"
+              >
+            </span>
+            <strong>Cucarachas</strong>
+            <span>Identificación de focos y condiciones favorables.</span>
+            <span class="card-arrow" aria-hidden="true">↗</span>
+          </button>
+
+          <button class="service-card" type="button" data-pest="Alacranes">
+            <span class="pest-media">
+              <img
+                src="img/alacran.jpg"
+                alt="Fotografía de un alacrán"
+                loading="lazy"
+                decoding="async"
+              >
+            </span>
+            <strong>Alacranes</strong>
+            <span>Observación de recorridos y puntos de ingreso.</span>
+            <span class="card-arrow" aria-hidden="true">↗</span>
+          </button>
+
+          <button class="service-card" type="button" data-pest="Mosquitos">
+            <span class="pest-media">
+              <img
+                src="img/mosquito.jpg"
+                alt="Fotografía de un mosquito"
+                loading="lazy"
+                decoding="async"
+              >
+            </span>
+            <strong>Mosquitos</strong>
+            <span>Evaluación de espacios interiores y exteriores.</span>
+            <span class="card-arrow" aria-hidden="true">↗</span>
+          </button>
+
+          <button class="service-card" type="button" data-pest="Arañas">
+            <span class="pest-media">
+              <img
+                src="img/arana.jpg"
+                alt="Fotografía de una araña"
+                loading="lazy"
+                decoding="async"
+              >
+            </span>
+            <strong>Arañas</strong>
+            <span>Revisión de zonas de actividad y refugio.</span>
+            <span class="card-arrow" aria-hidden="true">↗</span>
+          </button>
+
+          <button class="service-card" type="button" data-pest="Otras plagas">
+            <span class="pest-media">
+              <img
+                src="https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Termite.jpg/330px-Termite.jpg"
+                alt="Fotografía de una termita como ejemplo de otras plagas"
+                loading="lazy"
+                decoding="async"
+              >
+            </span>
+            <strong>Otras plagas</strong>
+            <span>Describí lo que viste para orientar la consulta.</span>
+            <span class="card-arrow" aria-hidden="true">↗</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE HIGIENIZA -->
+    <section class="why-section" id="nosotros" aria-labelledby="nosotros-title">
+      <div class="why-image-panel">
+        <div class="why-image"></div>
+        <div class="why-shade"></div>
+
+        <div class="why-content">
+          <p class="eyebrow eyebrow-light">POR QUÉ HIGIENIZA</p>
+          <h2 id="nosotros-title">
+            Una respuesta pensada para cada espacio
+          </h2>
+
+          <ul class="check-list">
+            <li>Observamos el problema antes de definir medidas.</li>
+            <li>Consideramos el uso y las condiciones del lugar.</li>
+            <li>Combinamos control y recomendaciones de prevención.</li>
+            <li>Explicamos los pasos del plan de trabajo.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="why-green-panel">
+        <span class="panel-symbol" aria-hidden="true">⌂</span>
+        <h3>Espacios más cuidados, más tranquilidad para vos</h3>
+        <p>
+          El manejo integrado busca actuar sobre la plaga y sobre las
+          condiciones que favorecen su presencia.
+        </p>
+        <a href="#metodo">
+          Así trabajamos <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- TIPOS DE ESPACIOS -->
+    <section class="spaces-section" id="espacios" aria-labelledby="espacios-title">
+      <div class="container">
+        <div class="spaces-heading">
+          <p class="eyebrow">ESPACIOS QUE ATENDEMOS</p>
+          <h2 id="espacios-title">Cada lugar necesita una mirada diferente</h2>
+          <p>
+            El manejo integrado comienza por entender cómo se usa el espacio,
+            dónde pueden ingresar las plagas y qué condiciones favorecen su presencia.
+          </p>
+        </div>
+
+        <div class="spaces-list">
+          <article class="space-card">
+            <img
+              src="img/hogares.jpg"
+              alt="Casa con jardín y entrada exterior"
+              width="4080"
+              height="3064"
+              loading="lazy"
+              decoding="async"
+            >
+            <div class="space-card-content">
+              <h3>Hogares y departamentos</h3>
+              <p>
+                Revisamos accesos, cocinas, patios y áreas de guardado para orientar
+                el control y la prevención en la vida cotidiana.
+              </p>
+            </div>
+          </article>
+
+          <article class="space-card">
+            <img
+              src="img/comercios.jpg"
+              alt="Interior de un local comercial"
+              width="4160"
+              height="3120"
+              loading="lazy"
+              decoding="async"
+            >
+            <div class="space-card-content">
+              <h3>Comercios y locales</h3>
+              <p>
+                Prestamos atención a puntos de ingreso, mercadería, depósitos y
+                sectores de atención según la actividad del negocio.
+              </p>
+            </div>
+          </article>
+
+          <article class="space-card">
+            <img
+              src="img/gastronomia.jpg"
+              alt="Cocina de un establecimiento gastronómico"
+              width="3863"
+              height="3091"
+              loading="lazy"
+              decoding="async"
+            >
+            <div class="space-card-content">
+              <h3>Gastronomía</h3>
+              <p>
+                Observamos cocinas, salones y almacenamiento para identificar
+                condiciones que requieren medidas de control y prevención.
+              </p>
+            </div>
+          </article>
+
+          <article class="space-card">
+            <img
+              src="img/oficinas.jpg"
+              alt="Oficina con escritorios y computadoras"
+              width="4032"
+              height="3024"
+              loading="lazy"
+              decoding="async"
+            >
+            <div class="space-card-content">
+              <h3>Oficinas y empresas</h3>
+              <p>
+                Evaluamos puestos de trabajo, áreas comunes e instalaciones,
+                considerando el uso diario de cada sector.
+              </p>
+            </div>
+          </article>
+
+          <article class="space-card">
+            <img
+              src="img/consorcios.jpg"
+              alt="Fachada de un edificio de departamentos"
+              width="3840"
+              height="2566"
+              loading="lazy"
+              decoding="async"
+            >
+            <div class="space-card-content">
+              <h3>Consorcios y edificios</h3>
+              <p>
+                Contemplamos espacios compartidos como cocheras, salas de residuos,
+                accesos y circulaciones para coordinar acciones.
+              </p>
+            </div>
+          </article>
+
+          <article class="space-card">
+            <img
+              src="img/depositos.jpg"
+              alt="Estanterías y mercadería en un depósito"
+              width="3920"
+              height="2204"
+              loading="lazy"
+              decoding="async"
+            >
+            <div class="space-card-content">
+              <h3>Depósitos y logística</h3>
+              <p>
+                Revisamos perímetros, mercadería almacenada y puntos de ingreso
+                para definir medidas acordes a la instalación.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <p class="spaces-note">
+          ¿Tu espacio no aparece en la lista?
+          <a href="#contacto">Contanos dónde necesitás ayuda</a> y te orientamos.
+        </p>
+      </div>
+    </section>
+
+    <!-- MÉTODO -->
+    <section
+      class="method-section section"
+      id="metodo"
+      aria-labelledby="metodo-title"
+    >
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">NUESTRO MÉTODO</p>
+            <h2 id="metodo-title">Del diagnóstico al seguimiento</h2>
+            <p>
+              Un proceso claro para entender lo que ocurre y actuar de acuerdo
+              con el lugar.
+            </p>
+          </div>
+        </div>
+
+        <div class="method-grid">
+          <div
+            class="method-photo"
+            role="img"
+            aria-label="Técnico inspeccionando el zócalo de una cocina con una linterna"
+          ></div>
+
+          <div class="method-card">
+            <span class="method-number">01 / 04</span>
+            <h3 id="method-title">Inspección</h3>
+            <p id="method-text">
+              Revisamos los indicios de actividad, los accesos y las
+              condiciones del entorno.
+            </p>
+
+            <div class="method-controls">
+              <button type="button" id="method-prev" aria-label="Paso anterior">
+                ←
+              </button>
+              <button type="button" id="method-next" aria-label="Paso siguiente">
+                →
+              </button>
+            </div>
+          </div>
+
+          <div class="method-note">
+            <span class="quote-mark" aria-hidden="true">“</span>
+            <h3>Prevenir también es parte de la solución.</h3>
+            <p>
+              Alimentos, humedad, accesos y refugios pueden influir en la
+              presencia de plagas. Las recomendaciones se ajustan a cada espacio.
+            </p>
+            <a href="#contacto">
+              Contanos tu caso <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES -->
+    <section
+      class="faq-section section"
+      id="preguntas"
+      aria-labelledby="preguntas-title"
+    >
+      <div class="container faq-layout">
+        <div>
+          <p class="eyebrow">INFORMACIÓN ÚTIL</p>
+          <h2 id="preguntas-title">Preguntas frecuentes</h2>
+          <p>
+            La respuesta precisa depende de la plaga y del espacio. Estas
+            orientaciones te ayudan a preparar la consulta.
+          </p>
+        </div>
+
+        <div class="faq-list">
+          <details>
+            <summary>
+              ¿Qué es el manejo integrado de plagas?
+              <span aria-hidden="true">+</span>
+            </summary>
+            <p>
+              Combina inspección, identificación, prevención y medidas de
+              control. El plan se define según lo que se observe en el lugar.
+            </p>
+          </details>
+
+          <details>
+            <summary>
+              ¿Tengo que identificar la plaga antes de consultar?
+              <span aria-hidden="true">+</span>
+            </summary>
+            <p>
+              No. Podés describir los rastros, dónde aparecen y desde cuándo.
+              Esa información ayuda a orientar la evaluación.
+            </p>
+          </details>
+
+          <details>
+            <summary>
+              ¿Se necesita preparar el espacio?
+              <span aria-hidden="true">+</span>
+            </summary>
+            <p>
+              Depende del procedimiento. Antes de cualquier intervención se
+              deben indicar las medidas necesarias para el espacio y sus
+              ocupantes.
+            </p>
+          </details>
+
+          <details>
+            <summary>
+              ¿Cuántas visitas se necesitan?
+              <span aria-hidden="true">+</span>
+            </summary>
+            <p>
+              Varía según la plaga, la actividad observada y las características
+              del lugar. La inspección permite definir el plan y el seguimiento.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- LLAMADO A LA ACCIÓN -->
+    <section class="cta-section">
+      <div class="container cta-inner">
+        <div>
+          <h2>¿Detectaste señales de plagas?</h2>
+          <p>Contanos qué sucede para orientar una evaluación.</p>
+        </div>
+
+        <a class="button button-primary" href="#contacto">
+          Preparar consulta <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section
+      class="contact-section section"
+      id="contacto"
+      aria-labelledby="contacto-title"
+    >
+      <div class="container contact-layout">
+        <div class="contact-copy">
+          <p class="eyebrow">CONTACTO</p>
+          <h2 id="contacto-title">Contanos qué problema encontraste</h2>
+          <p>
+            Indicá el tipo de espacio, la localidad y qué observaste.
+            Después elegí cómo enviar la consulta.
+          </p>
+          <p class="contact-notice">
+            Completá el formulario y elegí WhatsApp o correo para enviar tu consulta.
+          </p>
+
+          <div class="contact-methods" aria-label="Datos de contacto de Higieniza">
+            <a class="contact-method" href="tel:+5492962401598">
+              <span>Teléfono</span>
+              <strong>2962 401598</strong>
+            </a>
+            <a
+              class="contact-method"
+              href="https://wa.me/5492962401598"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>WhatsApp</span>
+              <strong>2962 401598</strong>
+            </a>
+            <a
+              class="contact-method"
+              href="mailto:higieniza.control@gmail.com"
+            >
+              <span>Correo electrónico</span>
+              <strong>higieniza.control@gmail.com</strong>
+            </a>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contact-form">
+          <div class="form-row">
+            <label>
+              Nombre *
+              <input
+                name="nombre"
+                type="text"
+                autocomplete="name"
+                required
+                maxlength="80"
+                placeholder="Tu nombre"
+              >
+            </label>
+
+            <label>
+              Localidad *
+              <input
+                name="localidad"
+                type="text"
+                autocomplete="address-level2"
+                required
+                maxlength="80"
+                placeholder="Ciudad o localidad"
+              >
+            </label>
+          </div>
+
+          <div class="form-row">
+            <label>
+              Tipo de espacio *
+              <select name="espacio" required>
+                <option value="">Seleccioná una opción</option>
+                <option>Hogar o consorcio</option>
+                <option>Comercio o gastronomía</option>
+                <option>Oficina o empresa</option>
+                <option>Depósito o industria</option>
+                <option>Otro</option>
+              </select>
+            </label>
+
+            <label>
+              Tipo de plaga *
+              <select name="plaga" id="plaga-select" required>
+                <option value="">Seleccioná una opción</option>
+                <option>Roedores</option>
+                <option>Cucarachas</option>
+                <option>Hormigas</option>
+                <option>Alacranes</option>
+                <option>Arañas</option>
+                <option>Otras plagas</option>
+              </select>
+            </label>
+          </div>
+
+          <label>
+            ¿Qué observaste? *
+            <textarea
+              name="detalle"
+              required
+              maxlength="1000"
+              rows="4"
+              placeholder="Contanos qué sucede y desde cuándo"
+            ></textarea>
+          </label>
+
+          <button class="button button-primary form-submit" type="submit">
+            Preparar mensaje <span aria-hidden="true">↗</span>
+          </button>
+
+          <div class="form-result" id="form-result" hidden aria-live="polite">
+            <strong>Tu consulta está lista</strong>
+            <p>
+              Revisá los datos y elegí WhatsApp o correo.
+              Confirmá el envío en la aplicación que se abra.
+            </p>
+            <pre id="summary-text"></pre>
+
+            <div class="send-actions">
+              <a
+                class="button button-primary"
+                id="send-whatsapp"
+                href="https://wa.me/5492962401598"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Enviar por WhatsApp
+              </a>
+              <a
+                class="button button-outline-dark"
+                id="send-email"
+                href="mailto:higieniza.control@gmail.com"
+              >
+                Enviar por correo
+              </a>
+            </div>
+
+            <button class="copy-button" id="copy-summary" type="button">
+              Copiar resumen
+            </button>
+            <span id="copy-status" role="status"></span>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <a class="brand" href="#inicio" aria-label="Higieniza, volver al inicio">
+        <img src="img/logo.png" alt="Higieniza" width="181" height="50">
+      </a>
+
+      <p>Manejo integrado en el control de plagas.</p>
+
+      <nav aria-label="Enlaces del pie de página">
+        <a href="#servicios">Servicios</a>
+        <a href="#metodo">Nuestro método</a>
+        <a href="#preguntas">Preguntas</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+
+    <div class="container footer-bottom">
+      <span>© <span id="year">2026</span> Higieniza</span>
+      <a href="#inicio">Volver arriba ↑</a>
+    </div>
+  </footer>
+</body>
+</html>
