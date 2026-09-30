@@ -77,25 +77,25 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       title: "Inspección",
       text: "Revisamos los indicios de actividad, los accesos y las condiciones del entorno.",
-      image: "img/inspeccion.png",
+      image: "inspeccion.png",
       imageLabel: "Técnico inspeccionando el zócalo de una cocina con una linterna."
     },
     {
       title: "Diagnóstico",
       text: "Identificamos el problema y los factores que pueden favorecer su presencia.",
-      image: "img/diagnostico.png",
+      image: "diagnostico.png",
       imageLabel: "Técnico observando indicios de plagas dentro de un mueble de cocina."
     },
     {
       title: "Intervención",
       text: "Definimos las medidas de control de acuerdo con la plaga y el uso del espacio.",
-      image: "img/intervencion.png",
+      image: "intervencion.png",
       imageLabel: "Técnico sellando una abertura junto a una cañería."
     },
     {
       title: "Seguimiento",
       text: "Compartimos recomendaciones de prevención y evaluamos los pasos siguientes.",
-      image: "img/seguimiento.png",
+      image: "seguimiento.png",
       imageLabel: "Técnico registrando una revisión de una estación de monitoreo."
     }
   ];
