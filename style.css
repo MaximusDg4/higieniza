@@ -694,7 +694,7 @@ h3 {
 }
 
 .method-photo {
-  background: url("img/metodo/inspeccion.png") center / cover no-repeat;
+  background: url("inspeccion.png") center / cover no-repeat;
 }
 
 .method-card,
