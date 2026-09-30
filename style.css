@@ -674,6 +674,25 @@ h3 {
   text-underline-offset: 3px;
 }
 
+/* Ocho tarjetas: tres por fila y las dos últimas centradas en una fila amplia. */
+@media (min-width: 1101px) {
+  .spaces-list {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .spaces-list > .space-card {
+    grid-column: span 2;
+  }
+
+  .spaces-list > .space-card:nth-last-child(-n + 2) {
+    grid-column: span 3;
+  }
+
+  .spaces-list > .space-card:nth-last-child(-n + 2) img {
+    height: 220px;
+  }
+}
+
 /* Método: imagen y paneles */
 .method-section {
   background: var(--surface);
