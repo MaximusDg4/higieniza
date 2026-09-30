@@ -242,7 +242,7 @@ h3 {
 }
 
 .hero-image {
-  background: url("img/hero.webp") center 48% / cover no-repeat;
+  background: url("hero.webp") center 48% / cover no-repeat;
 }
 
 .hero-overlay {
