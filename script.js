@@ -221,3 +221,64 @@ document.addEventListener("DOMContentLoaded", () => {
   const year = document.querySelector("#year");
   if (year) year.textContent = new Date().getFullYear();
 });
+  // Revela los bloques cuando entran en pantalla.
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  if (!reduceMotion && "IntersectionObserver" in window) {
+    const revealTargets = document.querySelectorAll([
+      ".feature",
+      ".services-heading",
+      ".service-card",
+      ".why-image-panel",
+      ".why-green-panel",
+      ".spaces-heading",
+      ".space-card",
+      ".method-section .section-heading",
+      ".method-photo",
+      ".method-card",
+      ".method-note",
+      ".faq-layout > div",
+      ".cta-inner > *",
+      ".contact-layout > *",
+      ".footer-main"
+    ].join(","));
+
+    // Separa un poco la aparición de las tarjetas.
+    document.querySelectorAll(
+      ".feature-grid, .service-grid, .spaces-list"
+    ).forEach((group) => {
+      Array.from(group.children).forEach((item, index) => {
+        const delay = Math.min(index * 70, 350);
+        item.style.setProperty("--reveal-delay", `${delay}ms`);
+      });
+    });
+
+    if (revealTargets.length) {
+      revealTargets.forEach((element) => {
+        element.classList.add("scroll-reveal");
+      });
+
+      document.documentElement.classList.add("scroll-reveal-enabled");
+
+      const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("scroll-reveal-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.12,
+          rootMargin: "0px 0px -35px 0px"
+        }
+      );
+
+      revealTargets.forEach((element) => {
+        revealObserver.observe(element);
+      });
+    }
+  }
