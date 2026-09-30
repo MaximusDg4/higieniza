@@ -1342,3 +1342,27 @@ h3 {
     transition-duration: .01ms !important;
   }
 }
+/* Aparición suave al desplazarse por la página */
+.scroll-reveal-enabled .scroll-reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 700ms ease,
+    transform 700ms cubic-bezier(.22, .61, .36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.scroll-reveal-enabled .scroll-reveal.scroll-reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mantiene el contenido quieto si el dispositivo pide reducir movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal-enabled .scroll-reveal,
+  .scroll-reveal-enabled .scroll-reveal.scroll-reveal-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
