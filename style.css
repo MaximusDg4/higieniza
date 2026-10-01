@@ -242,7 +242,7 @@ h3 {
 }
 
 .hero-image {
-  background: url("hero.webp") center 48% / cover no-repeat;
+  background: url("hero-paisaje.png") center 48% / cover no-repeat;
 }
 
 .hero-overlay {
@@ -1342,25 +1342,62 @@ h3 {
     transition-duration: .01ms !important;
   }
 }
-/* Aparición suave al desplazarse por la página */
-.scroll-reveal-enabled .scroll-reveal {
+
+/* FORMULARIO CON ENVÍO EN LA MISMA PÁGINA */
+.honeypot {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.form-submit:disabled {
+  cursor: wait;
+  opacity: .72;
+}
+
+.form-result {
+  border-radius: 8px;
+}
+
+.form-result p {
+  margin: 7px 0 14px;
+}
+
+.form-result.is-error {
+  border-left-color: #a52b27;
+  background: #fff1ef;
+  color: #57201c;
+}
+
+.form-whatsapp {
+  display: inline-flex;
+  text-align: center;
+}
+
+/* Aparición suave al desplazarse por la página. */
+html.has-scroll-reveal .scroll-reveal {
   opacity: 0;
-  transform: translateY(16px);
+  transform: translateY(18px);
   transition:
-    opacity 700ms ease,
-    transform 700ms cubic-bezier(.22, .61, .36, 1);
+    opacity 650ms ease,
+    transform 650ms cubic-bezier(.22, .61, .36, 1);
   transition-delay: var(--reveal-delay, 0ms);
 }
 
-.scroll-reveal-enabled .scroll-reveal.scroll-reveal-visible {
+html.has-scroll-reveal .scroll-reveal.scroll-reveal-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Mantiene el contenido quieto si el dispositivo pide reducir movimiento */
 @media (prefers-reduced-motion: reduce) {
-  .scroll-reveal-enabled .scroll-reveal,
-  .scroll-reveal-enabled .scroll-reveal.scroll-reveal-visible {
+  html.has-scroll-reveal .scroll-reveal,
+  html.has-scroll-reveal .scroll-reveal.scroll-reveal-visible {
     opacity: 1;
     transform: none;
     transition: none;
