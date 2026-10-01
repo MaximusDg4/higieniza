@@ -1,5 +1,4 @@
-// Higieniza: interacciones de la página.
-// El formulario prepara enlaces para WhatsApp y correo; la persona confirma el envío.
+// Higieniza: navegación, método, formulario Formspree y animaciones suaves.
 document.addEventListener("DOMContentLoaded", () => {
   const prefersReducedMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)"
@@ -46,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Al elegir una plaga, completa el selector y lleva al formulario.
+  // Elegir una plaga en las tarjetas completa el selector del formulario.
   const pestSelect = document.querySelector("#plaga-select");
   const contactSection = document.querySelector("#contacto");
   const formResult = document.querySelector("#form-result");
@@ -59,15 +58,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const exists = Array.from(pestSelect.options).some(
           (option) => option.value === pest
         );
-
-        if (!exists) {
-          pestSelect.add(new Option(pest, pest));
-        }
-
+        if (!exists) pestSelect.add(new Option(pest, pest));
         pestSelect.value = pest;
       }
 
-      if (formResult) formResult.hidden = true;
+      if (formResult) {
+        formResult.hidden = true;
+        formResult.classList.remove("is-error");
+      }
       scrollToElement(contactSection);
     });
   });
@@ -116,7 +114,6 @@ document.addEventListener("DOMContentLoaded", () => {
       `${String(methodIndex + 1).padStart(2, "0")} / ${String(methodSteps.length).padStart(2, "0")}`;
     methodTitle.textContent = step.title;
     methodText.textContent = step.text;
-
     if (methodPhoto) {
       methodPhoto.style.backgroundImage = `url("${step.image}")`;
       methodPhoto.setAttribute("aria-label", step.imageLabel);
@@ -138,147 +135,145 @@ document.addEventListener("DOMContentLoaded", () => {
     renderMethod();
   });
 
-  // Mantiene abierta una sola pregunta frecuente a la vez.
+  // Deja abierta una sola pregunta frecuente.
   const questions = document.querySelectorAll(".faq-list details");
-
   questions.forEach((question) => {
     question.addEventListener("toggle", () => {
       if (!question.open) return;
-
       questions.forEach((other) => {
         if (other !== question) other.open = false;
       });
     });
   });
 
-  // Prepara el resumen y los enlaces de envío.
+  // Envío real a Formspree sin salir de la página.
   const form = document.querySelector("#contact-form");
-  const summary = document.querySelector("#summary-text");
-  const copyButton = document.querySelector("#copy-summary");
-  const copyStatus = document.querySelector("#copy-status");
-  const whatsappLink = document.querySelector("#send-whatsapp");
-  const emailLink = document.querySelector("#send-email");
+  const resultTitle = document.querySelector("#form-result-title");
+  const resultMessage = document.querySelector("#form-result-message");
+  const submitButton = form?.querySelector('[type="submit"]');
 
-  if (form && formResult && summary) {
-    form.addEventListener("submit", (event) => {
+  if (form && formResult && resultTitle && resultMessage && submitButton) {
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
       if (!form.reportValidity()) return;
 
-      const data = new FormData(form);
-      const field = (name) => String(data.get(name) ?? "").trim();
-
-      summary.textContent = [
-        "Consulta para Higieniza",
-        `Nombre: ${field("nombre")}`,
-        `Localidad: ${field("localidad")}`,
-        `Espacio: ${field("espacio")}`,
-        `Plaga: ${field("plaga")}`,
-        `Situación: ${field("detalle")}`
-      ].join("\n");
-
-      const message = summary.textContent;
-
-      if (whatsappLink) {
-        whatsappLink.href =
-          `https://wa.me/5492962401598?text=${encodeURIComponent(message)}`;
+      const endpoint = form.getAttribute("action")?.trim() || "";
+      if (!endpoint || endpoint.includes("REEMPLAZAR_CON_ID")) {
+        formResult.hidden = false;
+        formResult.classList.add("is-error");
+        resultTitle.textContent = "El formulario todavía no está configurado";
+        resultMessage.textContent =
+          "Escribinos por WhatsApp mientras terminamos de configurar el formulario.";
+        scrollToElement(formResult);
+        return;
       }
 
-      if (emailLink) {
-        emailLink.href =
-          `mailto:higieniza.control@gmail.com?subject=${encodeURIComponent("Consulta para Higieniza")}&body=${encodeURIComponent(message)}`;
-      }
+      submitButton.disabled = true;
+      submitButton.setAttribute("aria-busy", "true");
+      submitButton.dataset.originalText = submitButton.textContent.trim();
+      submitButton.textContent = "Enviando consulta…";
+      formResult.hidden = true;
+      formResult.classList.remove("is-error");
 
-      formResult.hidden = false;
-      if (copyStatus) copyStatus.textContent = "";
-      scrollToElement(formResult);
+      try {
+        const response = await fetch(endpoint, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { Accept: "application/json" }
+        });
+
+        if (!response.ok) {
+          let detail = "";
+          try {
+            const errorData = await response.json();
+            detail = Array.isArray(errorData.errors)
+              ? errorData.errors.map((item) => item.message).join(" ")
+              : "";
+          } catch {
+            // El servidor puede responder sin un cuerpo JSON.
+          }
+          throw new Error(detail || "No se pudo enviar la consulta.");
+        }
+
+        form.reset();
+        resultTitle.textContent = "Consulta enviada";
+        resultMessage.textContent =
+          "Gracias por escribirnos. Recibimos tu consulta y nos comunicaremos con vos.";
+        formResult.hidden = false;
+        scrollToElement(formResult);
+      } catch (error) {
+        formResult.classList.add("is-error");
+        resultTitle.textContent = "No pudimos enviar la consulta";
+        resultMessage.textContent =
+          "Revisá tu conexión e intentá de nuevo. Si continúa el problema, escribinos por WhatsApp.";
+        formResult.hidden = false;
+        scrollToElement(formResult);
+      } finally {
+        submitButton.disabled = false;
+        submitButton.removeAttribute("aria-busy");
+        submitButton.innerHTML = 'Enviar consulta <span aria-hidden="true">↗</span>';
+      }
     });
 
     form.addEventListener("input", () => {
-      formResult.hidden = true;
-      if (copyStatus) copyStatus.textContent = "";
+      if (formResult.classList.contains("is-error")) {
+        formResult.hidden = true;
+        formResult.classList.remove("is-error");
+      }
     });
   }
 
-  if (copyButton && summary && copyStatus) {
-    copyButton.addEventListener("click", async () => {
-      try {
-        await navigator.clipboard.writeText(summary.textContent);
-        copyStatus.textContent = "Resumen copiado.";
-      } catch {
-        const selection = window.getSelection();
-        const range = document.createRange();
+  // Revela secciones con suavidad al entrar en pantalla.
+  const revealSelectors = [
+    ".feature",
+    ".services-heading",
+    ".service-card",
+    ".why-image-panel",
+    ".why-green-panel",
+    ".spaces-heading",
+    ".space-card",
+    ".spaces-note",
+    ".method-section .section-heading",
+    ".method-photo",
+    ".method-card",
+    ".method-note",
+    ".faq-layout > *",
+    ".cta-inner > *",
+    ".contact-layout > *",
+    ".footer-main"
+  ];
+  const revealElements = new Set();
+  revealSelectors.forEach((selector) => {
+    document.querySelectorAll(selector).forEach((element) => revealElements.add(element));
+  });
 
-        range.selectNodeContents(summary);
-        selection.removeAllRanges();
-        selection.addRange(range);
-
-        copyStatus.textContent =
-          "Texto seleccionado. Copialo desde el navegador.";
-      }
+  const staggerGroups = [".feature-grid", ".service-grid", ".spaces-list"];
+  staggerGroups.forEach((selector) => {
+    document.querySelectorAll(selector).forEach((group) => {
+      Array.from(group.children).forEach((element, index) => {
+        element.style.setProperty("--reveal-delay", `${Math.min(index * 75, 350)}ms`);
+      });
     });
+  });
+
+  if (!prefersReducedMotion.matches && "IntersectionObserver" in window) {
+    revealElements.forEach((element) => element.classList.add("scroll-reveal"));
+    document.documentElement.classList.add("has-scroll-reveal");
+
+    const observer = new IntersectionObserver((entries, currentObserver) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("scroll-reveal-visible");
+        currentObserver.unobserve(entry.target);
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: "0px 0px -35px 0px"
+    });
+
+    revealElements.forEach((element) => observer.observe(element));
   }
 
   const year = document.querySelector("#year");
   if (year) year.textContent = new Date().getFullYear();
 });
-  // Revela los bloques cuando entran en pantalla.
-  const reduceMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
-
-  if (!reduceMotion && "IntersectionObserver" in window) {
-    const revealTargets = document.querySelectorAll([
-      ".feature",
-      ".services-heading",
-      ".service-card",
-      ".why-image-panel",
-      ".why-green-panel",
-      ".spaces-heading",
-      ".space-card",
-      ".method-section .section-heading",
-      ".method-photo",
-      ".method-card",
-      ".method-note",
-      ".faq-layout > div",
-      ".cta-inner > *",
-      ".contact-layout > *",
-      ".footer-main"
-    ].join(","));
-
-    // Separa un poco la aparición de las tarjetas.
-    document.querySelectorAll(
-      ".feature-grid, .service-grid, .spaces-list"
-    ).forEach((group) => {
-      Array.from(group.children).forEach((item, index) => {
-        const delay = Math.min(index * 70, 350);
-        item.style.setProperty("--reveal-delay", `${delay}ms`);
-      });
-    });
-
-    if (revealTargets.length) {
-      revealTargets.forEach((element) => {
-        element.classList.add("scroll-reveal");
-      });
-
-      document.documentElement.classList.add("scroll-reveal-enabled");
-
-      const revealObserver = new IntersectionObserver(
-        (entries, observer) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("scroll-reveal-visible");
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        {
-          threshold: 0.12,
-          rootMargin: "0px 0px -35px 0px"
-        }
-      );
-
-      revealTargets.forEach((element) => {
-        revealObserver.observe(element);
-      });
-    }
-  }
