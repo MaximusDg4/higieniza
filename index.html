@@ -589,10 +589,11 @@
           <h2 id="contacto-title">Contanos qué problema encontraste</h2>
           <p>
             Indicá el tipo de espacio, la localidad y qué observaste.
-            Después elegí cómo enviar la consulta.
+            Al enviarla, la consulta llegará a Higieniza para que puedan responderte.
           </p>
           <p class="contact-notice">
-            Completá el formulario y elegí WhatsApp o correo para enviar tu consulta.
+            Tu consulta se envía desde esta página. Dejanos un teléfono y un correo
+            para que podamos responderte.
           </p>
 
           <div class="contact-methods" aria-label="Datos de contacto de Higieniza">
@@ -619,7 +620,22 @@
           </div>
         </div>
 
-        <form class="contact-form" id="contact-form">
+        <!-- Reemplazá REEMPLAZAR_CON_ID por el identificador del formulario de Formspree. -->
+        <form
+          class="contact-form"
+          id="contact-form"
+          action="https://formspree.io/f/xoevbrjw"
+          method="POST"
+          accept-charset="UTF-8"
+        >
+          <input type="hidden" name="_subject" value="Nueva consulta desde Higieniza">
+
+          <!-- Campo anti-spam invisible para las personas. -->
+          <label class="honeypot" aria-hidden="true">
+            Dejá este campo vacío
+            <input name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+          </label>
+
           <div class="form-row">
             <label>
               Nombre *
@@ -630,6 +646,32 @@
                 required
                 maxlength="80"
                 placeholder="Tu nombre"
+              >
+            </label>
+
+            <label>
+              Correo electrónico *
+              <input
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+                maxlength="120"
+                placeholder="tunombre@correo.com"
+              >
+            </label>
+          </div>
+
+          <div class="form-row">
+            <label>
+              Teléfono o WhatsApp *
+              <input
+                name="telefono"
+                type="tel"
+                autocomplete="tel"
+                required
+                maxlength="30"
+                placeholder="Tu número de contacto"
               >
             </label>
 
@@ -688,40 +730,22 @@
           </label>
 
           <button class="button button-primary form-submit" type="submit">
-            Preparar mensaje <span aria-hidden="true">↗</span>
+            Enviar consulta <span aria-hidden="true">↗</span>
           </button>
 
-          <div class="form-result" id="form-result" hidden aria-live="polite">
-            <strong>Tu consulta está lista</strong>
-            <p>
-              Revisá los datos y elegí WhatsApp o correo.
-              Confirmá el envío en la aplicación que se abra.
+          <div class="form-result" id="form-result" hidden role="status" aria-live="polite">
+            <strong id="form-result-title">Consulta enviada</strong>
+            <p id="form-result-message">
+              Gracias por escribirnos. Recibimos tu consulta y nos comunicaremos con vos.
             </p>
-            <pre id="summary-text"></pre>
-
-            <div class="send-actions">
-              <a
-                class="button button-primary"
-                id="send-whatsapp"
-                href="https://wa.me/5492962401598"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Enviar por WhatsApp
-              </a>
-              <a
-                class="button button-outline-dark"
-                id="send-email"
-                href="mailto:higieniza.control@gmail.com"
-              >
-                Enviar por correo
-              </a>
-            </div>
-
-            <button class="copy-button" id="copy-summary" type="button">
-              Copiar resumen
-            </button>
-            <span id="copy-status" role="status"></span>
+            <a
+              class="button button-outline-dark form-whatsapp"
+              href="https://wa.me/5492962401598"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              También podés escribirnos por WhatsApp
+            </a>
           </div>
         </form>
       </div>
@@ -746,7 +770,7 @@
     </div>
 
     <div class="container footer-bottom">
-      <span>© <span id="year">2026</span> Higieniza - Todos los derechos reservado.</span>
+      <span>© <span id="year">2026</span> Higieniza</span>
       <a href="#inicio">Volver arriba ↑</a>
     </div>
   </footer>
