@@ -932,8 +932,14 @@ h3 {
 }
 
 .contact-method__icon--whatsapp {
-  background: #e7f6eb;
-  color: #168448;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+}
+
+.contact-method__icon--whatsapp svg {
+  width: 23px;
+  height: 23px;
 }
 
 .contact-method__icon--email {
