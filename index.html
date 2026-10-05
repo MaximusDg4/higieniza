@@ -62,7 +62,7 @@
       <div
         class="hero-image"
         role="img"
-        aria-label="Profesional realizando control de plagas en el exterior de una vivienda"
+        aria-label="Vista panorámica de Puerto San Julián junto a la Bahía de San Julián"
       ></div>
       <div class="hero-overlay"></div>
 
@@ -598,39 +598,62 @@
 
           <div class="contact-methods" aria-label="Datos de contacto de Higieniza">
             <a class="contact-method" href="tel:+5492962401598">
-              <span>Teléfono</span>
-              <strong>2962 401598</strong>
+              <span class="contact-method__icon contact-method__icon--phone" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.2 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.84.58 2.8.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+              </span>
+              <span class="contact-method__details">
+                <span class="contact-method__label">Teléfono</span>
+                <strong>2962 401598</strong>
+              </span>
             </a>
+
             <a
               class="contact-method"
               href="https://wa.me/5492962401598"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span>WhatsApp</span>
-              <strong>2962 401598</strong>
+              <span class="contact-method__icon contact-method__icon--whatsapp" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.5 11.6a8.5 8.5 0 0 1-12.55 7.47L3 20l.96-4.78A8.5 8.5 0 1 1 20.5 11.6Z" />
+                  <path d="M8.5 8.2c.25-.55.5-.56.77-.57h.65c.2 0 .42.08.53.4l.76 1.82c.1.23.08.43-.06.62l-.55.68c-.18.2-.36.38-.15.74.2.37.9 1.49 1.98 2.14 1.08.66 1.3.55 1.63.22l.73-.86c.19-.23.4-.26.66-.15l1.7.81c.25.12.42.2.48.34.06.14.06.8-.2 1.54-.25.73-1.46 1.35-2.02 1.42-.52.06-1.18.09-1.9-.14-.44-.14-1-.33-1.72-.65-3.03-1.32-5-4.4-5.15-4.61-.15-.2-1.23-1.64-1.23-3.13 0-1.5.78-2.23 1.07-2.53Z" />
+                </svg>
+              </span>
+              <span class="contact-method__details">
+                <span class="contact-method__label">WhatsApp</span>
+                <strong>2962 401598</strong>
+              </span>
             </a>
+
             <a
               class="contact-method"
               href="mailto:higieniza.control@gmail.com"
             >
-              <span>Correo electrónico</span>
-              <strong>higieniza.control@gmail.com</strong>
+              <span class="contact-method__icon contact-method__icon--email" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="5" width="18" height="14" rx="2" />
+                  <path d="m3 7 9 6 9-6" />
+                </svg>
+              </span>
+              <span class="contact-method__details">
+                <span class="contact-method__label">Correo electrónico</span>
+                <strong>higieniza.control@gmail.com</strong>
+              </span>
             </a>
           </div>
         </div>
 
-        <!-- Reemplazá REEMPLAZAR_CON_ID por el identificador del formulario de Formspree. -->
         <form
           class="contact-form"
           id="contact-form"
-          action="https://formspree.io/f/xoevbrjw"
+          action="https://formspree.io/f/REEMPLAZAR_CON_ID"
           method="POST"
           accept-charset="UTF-8"
         >
           <input type="hidden" name="_subject" value="Nueva consulta desde Higieniza">
 
-          <!-- Campo anti-spam invisible para las personas. -->
           <label class="honeypot" aria-hidden="true">
             Dejá este campo vacío
             <input name="_gotcha" type="text" tabindex="-1" autocomplete="off">
@@ -687,6 +710,17 @@
               >
             </label>
           </div>
+
+          <label>
+            Dirección <span class="form-optional">(opcional)</span>
+            <input
+              name="direccion"
+              type="text"
+              autocomplete="street-address"
+              maxlength="150"
+              placeholder="Calle y altura"
+            >
+          </label>
 
           <div class="form-row">
             <label>
