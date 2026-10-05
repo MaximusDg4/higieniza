@@ -242,7 +242,7 @@ h3 {
 }
 
 .hero-image {
-  background: url("hero-paisaje.png") center 48% / cover no-repeat;
+  background: url("hero-puerto-san-julian.png") center 48% / cover no-repeat;
 }
 
 .hero-overlay {
@@ -898,28 +898,71 @@ h3 {
 
 .contact-method {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 4px 18px;
-  padding: 12px 15px;
+  align-items: center;
+  gap: 13px;
+  padding: 13px 15px;
   border: 1px solid var(--line);
   border-radius: 9px;
   background: #fff;
   overflow-wrap: anywhere;
+  text-decoration: none;
+  transition: border-color .2s ease, transform .2s ease;
 }
 
 .contact-method:hover {
   border-color: var(--green);
+  transform: translateY(-1px);
 }
 
-.contact-method span {
+.contact-method__icon {
+  display: grid;
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 11px;
+  background: #eaf2e9;
+  color: var(--forest);
+}
+
+.contact-method__icon svg {
+  display: block;
+  width: 21px;
+  height: 21px;
+}
+
+.contact-method__icon--whatsapp {
+  background: #e7f6eb;
+  color: #168448;
+}
+
+.contact-method__icon--email {
+  background: #eff3e5;
+  color: #59733b;
+}
+
+.contact-method__details {
+  display: grid;
+  min-width: 0;
+  gap: 3px;
+}
+
+.contact-method__label {
   color: var(--muted);
   font-size: .84rem;
 }
 
 .contact-method strong {
+  min-width: 0;
   color: var(--forest);
   font-size: .9rem;
+  overflow-wrap: anywhere;
+}
+
+.form-optional {
+  color: var(--muted);
+  font-size: .8rem;
+  font-weight: 500;
 }
 
 .send-actions {
