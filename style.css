@@ -238,15 +238,18 @@ h3 {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  z-index: -2;
 }
 
 .hero-image {
-  background: url("hero-paisaje.png") center 48% / cover no-repeat;
+  z-index: 0;
+  background-image: url("./hero-paisaje.png");
+  background-position: center 48%;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .hero-overlay {
-  z-index: -1;
+  z-index: 1;
   background: linear-gradient(
     90deg,
     rgba(4, 20, 11, .94) 0%,
@@ -257,6 +260,8 @@ h3 {
 }
 
 .hero-content {
+  position: relative;
+  z-index: 2;
   min-height: 420px;
   display: flex;
   flex-direction: column;
@@ -947,6 +952,12 @@ h3 {
   color: #59733b;
 }
 
+.contact-method__icon--facebook {
+  border-radius: 50%;
+  background: #1877f2;
+  color: #fff;
+}
+
 .contact-method__details {
   display: grid;
   min-width: 0;
@@ -1094,6 +1105,15 @@ h3 {
 .footer-main nav a:hover,
 .footer-bottom a:hover {
   color: var(--green-dark);
+}
+
+.footer-main nav .footer-facebook-link {
+  color: #1877f2;
+  font-weight: 700;
+}
+
+.footer-main nav .footer-facebook-link:hover {
+  color: #0f5fc4;
 }
 
 .footer-bottom {
