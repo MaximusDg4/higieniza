@@ -936,6 +936,11 @@ h3 {
   height: 21px;
 }
 
+.contact-method__icon--phone {
+  background: #168c36;
+  color: #fff;
+}
+
 .contact-method__icon--whatsapp {
   border-radius: 50%;
   background: #25d366;
@@ -948,8 +953,8 @@ h3 {
 }
 
 .contact-method__icon--email {
-  background: #eff3e5;
-  color: #59733b;
+  background: #d93025;
+  color: #fff;
 }
 
 .contact-method__icon--facebook {
