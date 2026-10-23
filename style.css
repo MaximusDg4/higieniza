@@ -528,11 +528,13 @@ h3 {
   );
 }
 
+/* Margen reducido para acercar el texto al borde izquierdo */
+
 .why-content {
   width: 100%;
   max-width: none;
   min-width: 0;
-  padding: 56px 48px 56px max(32px, calc((100vw - 1160px) / 2));
+  padding: 56px 40px;
 }
 
 .why-content h2 {
